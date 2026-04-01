@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 
+const API_BASE =
+  (import.meta.env.VITE_API_URL || 'https://dhiyogram-backend.onrender.com').replace(/\/$/, '')
+
 function App() {
   const [identifier, setIdentifier] = useState('')
   const [password, setPassword] = useState('')
@@ -13,7 +16,7 @@ function App() {
     e.preventDefault()
     setStatus({ type: 'loading', message: 'Logging in…' })
     try {
-      const res = await fetch('http://localhost:8081/auth/login', {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ usernameOrEmail: identifier, password }),
