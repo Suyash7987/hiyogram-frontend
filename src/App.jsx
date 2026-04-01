@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 const API_BASE =
-  (import.meta.env.VITE_API_URL || 'https://dhiyogram-backend.onrender.com').replace(/\/$/, '')
+  (import.meta.env.VITE_API_URL || 'http://localhost:8081').replace(/\/$/, '')
 
 function App() {
   const [identifier, setIdentifier] = useState('')
